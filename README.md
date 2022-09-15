@@ -1,1 +1,2 @@
-# Convert_GLTF_To_GLB_And_Merge
+# Convert a GLTF to a GLB file
+# Merge Multiple GLB file's in to one
