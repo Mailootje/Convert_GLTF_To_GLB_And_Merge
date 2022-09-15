@@ -1,0 +1,60 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GLB - SharpGLTF/1.0.0": {
+        "dependencies": {
+          "SharpGLTF.Core": "1.0.0-alpha0026",
+          "SharpGLTF.Toolkit": "1.0.0-alpha0026"
+        },
+        "runtime": {
+          "GLB - SharpGLTF.dll": {}
+        }
+      },
+      "SharpGLTF.Core/1.0.0-alpha0026": {
+        "runtime": {
+          "lib/net6.0/SharpGLTF.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SharpGLTF.Toolkit/1.0.0-alpha0026": {
+        "dependencies": {
+          "SharpGLTF.Core": "1.0.0-alpha0026"
+        },
+        "runtime": {
+          "lib/net6.0/SharpGLTF.Toolkit.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GLB - SharpGLTF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SharpGLTF.Core/1.0.0-alpha0026": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d+vh9dgERFwrCiOIFFfZD+F3ZR2QxXxdZ7uRPHqaQFVV9DKdBWjWcxhwu/2i/nkJsaJetPLcTQ3JcN6Nxyuf3g==",
+      "path": "sharpgltf.core/1.0.0-alpha0026",
+      "hashPath": "sharpgltf.core.1.0.0-alpha0026.nupkg.sha512"
+    },
+    "SharpGLTF.Toolkit/1.0.0-alpha0026": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l/FA+QRS2MXDHig049gxdLdfsZ0cyGiPi90tIY8KMF5f5mXhZzPVt+QUniFc87qn7S0rnSUPOUFS1wx9sjcp5w==",
+      "path": "sharpgltf.toolkit/1.0.0-alpha0026",
+      "hashPath": "sharpgltf.toolkit.1.0.0-alpha0026.nupkg.sha512"
+    }
+  }
+}
