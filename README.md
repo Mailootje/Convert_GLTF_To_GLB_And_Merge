@@ -1,2 +1,2 @@
 # Convert a GLTF to a GLB file
-# Merge Multiple GLB file's in to one
+# Merge Multiple GLB file's into one
