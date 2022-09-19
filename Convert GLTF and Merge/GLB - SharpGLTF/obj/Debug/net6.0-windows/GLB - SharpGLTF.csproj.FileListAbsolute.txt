@@ -38,3 +38,23 @@ C:\Users\oliam\Desktop\GLB - SharpGLTF\GLB - SharpGLTF\obj\Debug\net6.0-windows\
 C:\Users\oliam\Desktop\GLB - SharpGLTF\GLB - SharpGLTF\obj\Debug\net6.0-windows\ref\GLB - SharpGLTF.dll
 C:\Users\oliam\Desktop\GLB - SharpGLTF\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.pdb
 C:\Users\oliam\Desktop\GLB - SharpGLTF\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.genruntimeconfig.cache
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\GLB - SharpGLTF.exe
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\GLB - SharpGLTF.deps.json
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\GLB - SharpGLTF.runtimeconfig.json
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\GLB - SharpGLTF.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\ref\GLB - SharpGLTF.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\GLB - SharpGLTF.pdb
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\SharpGLTF.Core.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\bin\Debug\net6.0-windows\SharpGLTF.Toolkit.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.csproj.AssemblyReference.cache
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB___SharpGLTF.Form1.resources
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.csproj.GenerateResource.cache
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.AssemblyInfoInputs.cache
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.AssemblyInfo.cs
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.csproj.CoreCompileInputs.cache
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.csproj.CopyComplete
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\ref\GLB - SharpGLTF.dll
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.pdb
+C:\Users\oliam\Desktop\Convert_GLTF_To_GLB_And_Merge\Convert GLTF and Merge\GLB - SharpGLTF\obj\Debug\net6.0-windows\GLB - SharpGLTF.genruntimeconfig.cache

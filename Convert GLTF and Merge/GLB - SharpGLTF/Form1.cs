@@ -22,17 +22,19 @@ namespace GLB___SharpGLTF
         //Merge 2 GLB files into one
         private void button2_Click(object sender, EventArgs e)
         {
-            var terrain = SceneBuilder.LoadDefaultScene("Soldier.glb");
-            var boat = SceneBuilder.LoadDefaultScene("Xbot.glb");
+            var Object1 = SceneBuilder.LoadDefaultScene("Soldier.glb");
+            var Object2 = SceneBuilder.LoadDefaultScene("Xbot.glb");
+            var Object3 = SceneBuilder.LoadDefaultScene("Model.glb");
             // filter out the parts you don't want
             /*            foreach (var instance in boat.Instances.ToArray())
                         {
                             if (instance.Name.StartsWith("Test")) instance.Remove();  // remove this instance from the boat scene.
                         }*/
             var merged = new SceneBuilder();
-            merged.AddScene(terrain, Matrix4x4.Identity);
-            merged.AddScene(boat, Matrix4x4.CreateTranslation(1, 0, 0));
-            merged.ToGltf2().Save("merged.glb");
+            merged.AddScene(Object1, Matrix4x4.Identity);
+            merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
+            merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
+            merged.ToGltf2().Save("Merged.glb");
         }
     }
 }

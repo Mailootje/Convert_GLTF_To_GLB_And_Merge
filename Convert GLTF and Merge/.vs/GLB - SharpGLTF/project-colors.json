@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "20de7664-63de-4981-b424-b6aa0368c2c0": {
+      "ProjectGuid": "20de7664-63de-4981-b424-b6aa0368c2c0",
+      "DisplayName": "GLB - SharpGLTF",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
