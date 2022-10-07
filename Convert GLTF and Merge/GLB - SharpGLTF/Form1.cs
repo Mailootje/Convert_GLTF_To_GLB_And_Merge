@@ -2,6 +2,8 @@ using System;
 using SharpGLTF;
 using SharpGLTF.Scenes;
 using System.Numerics;
+using System.Linq.Expressions;
+using System.Globalization;
 
 namespace GLB___SharpGLTF
 {
@@ -22,9 +24,10 @@ namespace GLB___SharpGLTF
         //Merge 2 GLB files into one
         private void button2_Click(object sender, EventArgs e)
         {
+            ///////////////////////////////////////////////////////// Merge 1 ////////////////////////////////////////////////////////////////
+            ///
             var Object1 = SceneBuilder.LoadDefaultScene("Soldier.glb");
             var Object2 = SceneBuilder.LoadDefaultScene("Xbot.glb");
-            var Object3 = SceneBuilder.LoadDefaultScene("Model.glb");
             // filter out the parts you don't want
             /*            foreach (var instance in boat.Instances.ToArray())
                         {
@@ -33,8 +36,47 @@ namespace GLB___SharpGLTF
             var merged = new SceneBuilder();
             merged.AddScene(Object1, Matrix4x4.Identity);
             merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
-            merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
             merged.ToGltf2().Save("Merged.glb");
+
+            ///////////////////////////////////////////////////////// Merge 2 ////////////////////////////////////////////////////////////////
+
+            var Object3 = SceneBuilder.LoadDefaultScene("Merged.glb");
+            var Object4 = SceneBuilder.LoadDefaultScene("Xbot.glb");
+            // filter out the parts you don't want
+            /*            foreach (var instance in boat.Instances.ToArray())
+                        {
+                            if (instance.Name.StartsWith("Test")) instance.Remove();  // remove this instance from the boat scene.
+                        }*/
+            var merged2 = new SceneBuilder();
+            merged2.AddScene(Object3, Matrix4x4.Identity);
+            merged2.AddScene(Object4, Matrix4x4.CreateTranslation(4, 0, 0));
+            merged2.ToGltf2().Save("Merged2.glb");
+
+            ///////////////////////////////////////////////////////// Merge 3 ////////////////////////////////////////////////////////////////
+
+            var Object5 = SceneBuilder.LoadDefaultScene("Merged2.glb");
+            var Object6 = SceneBuilder.LoadDefaultScene("Xbot.glb");
+            // filter out the parts you don't want
+            /*            foreach (var instance in boat.Instances.ToArray())
+                        {
+                            if (instance.Name.StartsWith("Test")) instance.Remove();  // remove this instance from the boat scene.
+                        }*/
+            var merged3 = new SceneBuilder();
+            merged3.AddScene(Object5, Matrix4x4.Identity);
+            merged3.AddScene(Object6, Matrix4x4.CreateTranslation(-2, 0, 0));
+            merged3.ToGltf2().Save("Merged3.glb");
+        }
+
+        private void Rotate180_Click(object sender, EventArgs e)
+        {
+            var ObjectRotate = SceneBuilder.LoadDefaultScene("Merged3.glb");
+            ObjectRotate.ApplyBasisTransform(Matrix4x4.CreateRotationX((float)Math.PI)); // for a 180° Rotation
+            ObjectRotate.ToGltf2().Save("Rotated.glb");
+        }
+
+        private void Animatie_Click(object sender, EventArgs e)
+        {
+            var ObjectAnimatie = SceneBuilder.LoadDefaultScene("Xbox.glb");
         }
     }
 }
