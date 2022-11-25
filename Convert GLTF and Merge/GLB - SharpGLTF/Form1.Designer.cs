@@ -33,6 +33,7 @@
             this.Rotate180 = new System.Windows.Forms.Button();
             this.Animatie = new System.Windows.Forms.Button();
             this.btn_filedialog = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gltf_glb
@@ -79,17 +80,28 @@
             // 
             this.btn_filedialog.Location = new System.Drawing.Point(517, 12);
             this.btn_filedialog.Name = "btn_filedialog";
-            this.btn_filedialog.Size = new System.Drawing.Size(165, 23);
+            this.btn_filedialog.Size = new System.Drawing.Size(84, 23);
             this.btn_filedialog.TabIndex = 4;
             this.btn_filedialog.Text = "FileDialog";
             this.btn_filedialog.UseVisualStyleBackColor = true;
             this.btn_filedialog.Click += new System.EventHandler(this.btn_filedialog_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(141, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "New Merge 2 Files";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_filedialog);
             this.Controls.Add(this.Animatie);
             this.Controls.Add(this.Rotate180);
@@ -108,5 +120,6 @@
         private Button Rotate180;
         private Button Animatie;
         private Button btn_filedialog;
+        private Button button1;
     }
 }

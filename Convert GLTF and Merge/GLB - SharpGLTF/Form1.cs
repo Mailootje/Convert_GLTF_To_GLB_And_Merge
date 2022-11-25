@@ -13,6 +13,7 @@ using SharpGLTF.Collections;
 using SharpGLTF.Transforms;
 using SharpGLTF.Animations;
 using SharpGLTF.Validation;
+using System.Drawing;
 
 namespace GLB___SharpGLTF
 {
@@ -26,8 +27,17 @@ namespace GLB___SharpGLTF
         //Convert GLTF to GLB
         private void btn_gltfTOglb_Click(object sender, EventArgs e)
         {
-            var model = SharpGLTF.Schema2.ModelRoot.Load("model.gltf");
-            model.SaveGLB("SavedGLB.glb");
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
+                                "All Files (*.*)|*.*";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = openDialog.FileName;
+                var model = SharpGLTF.Schema2.ModelRoot.Load(file);
+                model.SaveGLB(openDialog.FileName);
+            }
+
         }
 
         //Merge 2 GLB files into one
@@ -97,10 +107,48 @@ namespace GLB___SharpGLTF
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 string file = openDialog.FileName;
-                var FileDialog = SceneBuilder.LoadDefaultScene(file);
-                FileDialog.ApplyBasisTransform(Matrix4x4.CreateRotationZ((float)Math.PI)); // for a 180° Rotation
-                FileDialog.ToGltf2().Save("OpenDialog.glb");
+                DialogResult dialogResult = MessageBox.Show("Do you want that file that you selected to be rotated 180° ?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var FileDialog = SceneBuilder.LoadDefaultScene(file);
+                    FileDialog.ApplyBasisTransform(Matrix4x4.CreateRotationZ((float)Math.PI)); // for a 180° Rotation
+                    FileDialog.ToGltf2().Save("OpenDialog.glb");
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Multiselect = true;
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
+                                "All Files (*.*)|*.*";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = openDialog.FileName;
+                string file2 = openDialog.FileName;
+
+                var Object1 = SceneBuilder.LoadDefaultScene(file);
+                var Object2 = SceneBuilder.LoadDefaultScene(file2);
+                // filter out the parts you don't want
+                /*            foreach (var instance in boat.Instances.ToArray())
+                            {
+                                if (instance.Name.StartsWith("Test")) instance.Remove();  // remove this instance from the boat scene.
+                            }*/
+                var merged = new SceneBuilder();
+                merged.AddScene(Object1, Matrix4x4.Identity);
+                merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
+                merged.ToGltf2().Save("Merged2FilesTogether.glb");
             }
         }
     }
 }
+
+
+//SharpGLTF.Animations.AnimatableProperty(1);
