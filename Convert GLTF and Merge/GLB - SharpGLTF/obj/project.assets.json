@@ -88,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oliam\\Documents\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
+      "projectUniqueName": "C:\\Users\\oliam\\OneDrive\\Documenten\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
       "projectName": "GLB - SharpGLTF",
-      "projectPath": "C:\\Users\\oliam\\Documents\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
+      "projectPath": "C:\\Users\\oliam\\OneDrive\\Documenten\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
       "packagesPath": "C:\\Users\\oliam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oliam\\Documents\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\obj\\",
+      "outputPath": "C:\\Users\\oliam\\OneDrive\\Documenten\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

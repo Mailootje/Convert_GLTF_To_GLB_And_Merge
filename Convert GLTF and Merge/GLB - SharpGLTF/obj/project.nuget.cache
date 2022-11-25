@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fevY+cAmr7Wra6hnubfLCzkKw/h8pXFDcck9Tg27ozaKtnlCrGyTG69+uM7KGcu+hNImvUDYez6f4y2fKkGPDA==",
+  "dgSpecHash": "Hdp5GDgWrRzP97vi7t01/QDFwiD85AAKGfj0MP1hntL3715cyCyUgbNOHGk0GXsMzmT1bAZ1iszCuoW7YpF2dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oliam\\Documents\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
+  "projectFilePath": "C:\\Users\\oliam\\OneDrive\\Documenten\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oliam\\.nuget\\packages\\sharpgltf.core\\1.0.0-alpha0026\\sharpgltf.core.1.0.0-alpha0026.nupkg.sha512",
     "C:\\Users\\oliam\\.nuget\\packages\\sharpgltf.toolkit\\1.0.0-alpha0026\\sharpgltf.toolkit.1.0.0-alpha0026.nupkg.sha512"

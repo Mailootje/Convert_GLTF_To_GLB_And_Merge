@@ -32,6 +32,7 @@
             this.MergeBtn = new System.Windows.Forms.Button();
             this.Rotate180 = new System.Windows.Forms.Button();
             this.Animatie = new System.Windows.Forms.Button();
+            this.btn_filedialog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gltf_glb
@@ -74,11 +75,22 @@
             this.Animatie.UseVisualStyleBackColor = true;
             this.Animatie.Click += new System.EventHandler(this.Animatie_Click);
             // 
+            // btn_filedialog
+            // 
+            this.btn_filedialog.Location = new System.Drawing.Point(517, 12);
+            this.btn_filedialog.Name = "btn_filedialog";
+            this.btn_filedialog.Size = new System.Drawing.Size(165, 23);
+            this.btn_filedialog.TabIndex = 4;
+            this.btn_filedialog.Text = "FileDialog";
+            this.btn_filedialog.UseVisualStyleBackColor = true;
+            this.btn_filedialog.Click += new System.EventHandler(this.btn_filedialog_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_filedialog);
             this.Controls.Add(this.Animatie);
             this.Controls.Add(this.Rotate180);
             this.Controls.Add(this.MergeBtn);
@@ -95,5 +107,6 @@
         private Button MergeBtn;
         private Button Rotate180;
         private Button Animatie;
+        private Button btn_filedialog;
     }
 }

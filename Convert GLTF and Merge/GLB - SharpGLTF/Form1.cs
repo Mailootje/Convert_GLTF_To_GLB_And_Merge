@@ -5,6 +5,15 @@ using System.Numerics;
 using System.Linq.Expressions;
 using System.Globalization;
 
+using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+
+using SharpGLTF.Collections;
+using SharpGLTF.Transforms;
+using SharpGLTF.Animations;
+using SharpGLTF.Validation;
+
 namespace GLB___SharpGLTF
 {
     public partial class Form1 : Form
@@ -70,13 +79,28 @@ namespace GLB___SharpGLTF
         private void Rotate180_Click(object sender, EventArgs e)
         {
             var ObjectRotate = SceneBuilder.LoadDefaultScene("Merged3.glb");
-            ObjectRotate.ApplyBasisTransform(Matrix4x4.CreateRotationX((float)Math.PI)); // for a 180° Rotation
+            ObjectRotate.ApplyBasisTransform(Matrix4x4.CreateRotationZ((float)Math.PI)); // for a 180° Rotation
             ObjectRotate.ToGltf2().Save("Rotated.glb");
         }
 
         private void Animatie_Click(object sender, EventArgs e)
         {
-            var ObjectAnimatie = SceneBuilder.LoadDefaultScene("Xbox.glb");
+            var ObjectAnimatie = SceneBuilder.LoadDefaultScene("Xbot.glb");
+        }
+
+        private void btn_filedialog_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
+                                "All Files (*.*)|*.*";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = openDialog.FileName;
+                var FileDialog = SceneBuilder.LoadDefaultScene(file);
+                FileDialog.ApplyBasisTransform(Matrix4x4.CreateRotationZ((float)Math.PI)); // for a 180° Rotation
+                FileDialog.ToGltf2().Save("OpenDialog.glb");
+            }
         }
     }
 }
