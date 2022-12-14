@@ -30,6 +30,17 @@
             "related": ".xml"
           }
         }
+      },
+      "Unity3D.SDK/2021.1.14.1": {
+        "type": "package",
+        "compile": {
+          "lib/UnityEditor.dll": {},
+          "lib/UnityEngine.dll": {}
+        },
+        "runtime": {
+          "lib/UnityEditor.dll": {},
+          "lib/UnityEngine.dll": {}
+        }
       }
     }
   },
@@ -73,12 +84,28 @@
         "sharpgltf.toolkit.1.0.0-alpha0026.nupkg.sha512",
         "sharpgltf.toolkit.nuspec"
       ]
+    },
+    "Unity3D.SDK/2021.1.14.1": {
+      "sha512": "t5wm+eCp4HvhSiAmH2lASj82QobnZe0uEwZyd+RreN4bRqB6x2kSK4uvu213TQrtMeDi+HB015wWWu2VnKpEIQ==",
+      "type": "package",
+      "path": "unity3d.sdk/2021.1.14.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/UnityEditor.dll",
+        "lib/UnityEditor.xml",
+        "lib/UnityEngine.dll",
+        "lib/UnityEngine.xml",
+        "unity3d.sdk.2021.1.14.1.nupkg.sha512",
+        "unity3d.sdk.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "SharpGLTF.Core >= 1.0.0-alpha0026",
-      "SharpGLTF.Toolkit >= 1.0.0-alpha0026"
+      "SharpGLTF.Toolkit >= 1.0.0-alpha0026",
+      "Unity3D.SDK >= 2021.1.14.1"
     ]
   },
   "packageFolders": {
@@ -133,6 +160,10 @@
           "SharpGLTF.Toolkit": {
             "target": "Package",
             "version": "[1.0.0-alpha0026, )"
+          },
+          "Unity3D.SDK": {
+            "target": "Package",
+            "version": "[2021.1.14.1, )"
           }
         },
         "imports": [
@@ -157,5 +188,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Unity3D.SDK 2021.1.14.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Unity3D.SDK",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

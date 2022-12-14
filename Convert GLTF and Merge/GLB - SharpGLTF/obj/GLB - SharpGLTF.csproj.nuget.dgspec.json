@@ -52,6 +52,10 @@
             "SharpGLTF.Toolkit": {
               "target": "Package",
               "version": "[1.0.0-alpha0026, )"
+            },
+            "Unity3D.SDK": {
+              "target": "Package",
+              "version": "[2021.1.14.1, )"
             }
           },
           "imports": [

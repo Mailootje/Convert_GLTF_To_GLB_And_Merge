@@ -14,6 +14,9 @@ using SharpGLTF.Transforms;
 using SharpGLTF.Animations;
 using SharpGLTF.Validation;
 using System.Drawing;
+using UnityEngine;
+using UnityEditor;
+using Matrix4x4 = System.Numerics.Matrix4x4;
 
 namespace GLB___SharpGLTF
 {
@@ -146,6 +149,11 @@ namespace GLB___SharpGLTF
                 merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
                 merged.ToGltf2().Save("Merged2FilesTogether.glb");
             }
+        }
+
+        private void btn_unityAnimation_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

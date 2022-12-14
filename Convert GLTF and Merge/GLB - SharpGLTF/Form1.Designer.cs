@@ -34,6 +34,7 @@
             this.Animatie = new System.Windows.Forms.Button();
             this.btn_filedialog = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_unityAnimation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gltf_glb
@@ -96,11 +97,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_unityAnimation
+            // 
+            this.btn_unityAnimation.Location = new System.Drawing.Point(269, 41);
+            this.btn_unityAnimation.Name = "btn_unityAnimation";
+            this.btn_unityAnimation.Size = new System.Drawing.Size(143, 23);
+            this.btn_unityAnimation.TabIndex = 6;
+            this.btn_unityAnimation.Text = "UnityEngineAnimation";
+            this.btn_unityAnimation.UseVisualStyleBackColor = true;
+            this.btn_unityAnimation.Click += new System.EventHandler(this.btn_unityAnimation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_unityAnimation);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_filedialog);
             this.Controls.Add(this.Animatie);
@@ -121,5 +133,6 @@
         private Button Animatie;
         private Button btn_filedialog;
         private Button button1;
+        private Button btn_unityAnimation;
     }
 }
