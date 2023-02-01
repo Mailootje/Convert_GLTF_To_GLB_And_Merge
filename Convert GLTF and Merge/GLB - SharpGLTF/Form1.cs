@@ -1,22 +1,10 @@
-using System;
-using SharpGLTF;
 using SharpGLTF.Scenes;
 using System.Numerics;
-using System.Linq.Expressions;
-using System.Globalization;
-
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-
-using SharpGLTF.Collections;
-using SharpGLTF.Transforms;
+using SharpGLTF.Schema2;
 using SharpGLTF.Animations;
-using SharpGLTF.Validation;
-using System.Drawing;
-using UnityEngine;
-using UnityEditor;
-using Matrix4x4 = System.Numerics.Matrix4x4;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Nodes;
 
 namespace GLB___SharpGLTF
 {
@@ -36,9 +24,56 @@ namespace GLB___SharpGLTF
                                 "All Files (*.*)|*.*";
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                string file = openDialog.FileName;
-                var model = SharpGLTF.Schema2.ModelRoot.Load(file);
-                model.SaveGLB(openDialog.FileName);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true
+
+                };
+
+                string text = File.ReadAllText(openDialog.FileName); //4
+
+                var merged = new SceneBuilder();
+
+                JsonObjectj jsonObj = JsonSerializer.Deserialize<JsonObjectj>(text, options); //4
+
+                Matrix4x4 matrix = Matrix4x4.Identity;
+                System.Numerics.Vector3 offset = new Vector3(100, 100, 100);
+                matrix.Translation = offset;
+
+
+
+                //for omniwheel
+                ModelRoot hub1Model = ModelRoot.ParseGLB(Convert.FromBase64String(jsonObj.GLBs[0]));
+
+                ModelRoot hub2Model = ModelRoot.ParseGLB(Convert.FromBase64String(jsonObj.GLBs[0]));
+
+                hub2Model.ApplyBasisTransform(matrix, "myfirstnode");
+
+                hub1Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, 4f)), (2, Quaternion.Identity));
+                hub2Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, -4f)), (2, Quaternion.Identity));
+
+                var hub1Scene = SceneBuilder.CreateFrom(hub1Model.DefaultScene);
+                var hub2Scene = SceneBuilder.CreateFrom(hub2Model.DefaultScene);
+
+                merged.AddScene(hub2Scene, Matrix4x4.CreateTranslation(1112, 130, 120));
+
+                merged.AddScene(hub1Scene, Matrix4x4.Identity);
+                //merged.AddScene(hub2Scene, matrix);
+
+                merged.ToGltf2().Save(openDialog.FileName);
+
+                //// Load the glTF file
+                //var model = ModelRoot.Load("path/to/gltf/file.glb");
+
+                //// Get the animation you want to change
+                //var animation = model.Animations[0];
+
+                //// Modify the animation as desired
+                //animation.Name = "My New Animation";
+                //animation.Channels[0].Sampler.Input.Accessor.AsVector3Array()[0] = new SharpGLTF.Math.Vector3(1, 2, 3);
+
+                //// Save the modified glTF file
+                //model.Save("modified/gltf/file.glb", true);
             }
 
         }
@@ -134,11 +169,11 @@ namespace GLB___SharpGLTF
                                 "All Files (*.*)|*.*";
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                string file = openDialog.FileName;
-                string file2 = openDialog.FileName;
+                string filename = openDialog.FileName;
+                //string file2 = openDialog.FileName;
 
-                var Object1 = SceneBuilder.LoadDefaultScene(file);
-                var Object2 = SceneBuilder.LoadDefaultScene(file2);
+                var Object1 = SceneBuilder.LoadDefaultScene(filename);
+                //var Object2 = SceneBuilder.LoadDefaultScene(file2);
                 // filter out the parts you don't want
                 /*            foreach (var instance in boat.Instances.ToArray())
                             {
@@ -146,14 +181,20 @@ namespace GLB___SharpGLTF
                             }*/
                 var merged = new SceneBuilder();
                 merged.AddScene(Object1, Matrix4x4.Identity);
-                merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
+                //merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
                 merged.ToGltf2().Save("Merged2FilesTogether.glb");
             }
         }
 
-        private void btn_unityAnimation_Click(object sender, EventArgs e)
+        private void btn_changeLocation_Click(object sender, EventArgs e)
         {
+
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
+                                "All Files (*.*)|*.*";
             
+           
         }
     }
 }

@@ -1,23 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F3ZHwRbSZWbt8JX+6fMlf8aQgdV37u5PLF+NWrgEll2oCY38RmIa/MCNg582UdP60ZJT/9ZS6DfeE5t0f2SV9Q==",
+  "dgSpecHash": "6C4JwB2AhpgPjotm5/UJ7L+ilhjazjU+Yxxa+HdT5hiLQKQiva+h30BSdhURQ71aRpCEuVONgPfh9iRapYn8BA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oliam\\OneDrive\\Documenten\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
+  "projectFilePath": "C:\\Users\\oliam\\Documents\\GitHub\\Convert_GLTF_To_GLB_And_Merge\\Convert GLTF and Merge\\GLB - SharpGLTF\\GLB - SharpGLTF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oliam\\.nuget\\packages\\sharpgltf.core\\1.0.0-alpha0026\\sharpgltf.core.1.0.0-alpha0026.nupkg.sha512",
-    "C:\\Users\\oliam\\.nuget\\packages\\sharpgltf.toolkit\\1.0.0-alpha0026\\sharpgltf.toolkit.1.0.0-alpha0026.nupkg.sha512",
-    "C:\\Users\\oliam\\.nuget\\packages\\unity3d.sdk\\2021.1.14.1\\unity3d.sdk.2021.1.14.1.nupkg.sha512"
+    "C:\\Users\\oliam\\.nuget\\packages\\sharpgltf.toolkit\\1.0.0-alpha0026\\sharpgltf.toolkit.1.0.0-alpha0026.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Unity3D.SDK 2021.1.14.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Unity3D.SDK",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  "logs": []
 }
