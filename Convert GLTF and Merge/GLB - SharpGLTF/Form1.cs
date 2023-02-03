@@ -15,67 +15,75 @@ namespace GLB___SharpGLTF
             InitializeComponent();
         }
 
-        //Convert GLTF to GLB
-        private void btn_gltfTOglb_Click(object sender, EventArgs e)
+        //Create a OmniWheel GLB out of a JSON file
+        private void btn_omniwheel_Click(object sender, EventArgs e)
         {
+
+            //Here we open a select menu so you can select a .json file.
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Title = "Select A File";
-            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
-                                "All Files (*.*)|*.*";
+            openDialog.Filter = "GIMBin JSON File (*.json)|*.json" + "|" + "All Files (*.*)|*.*";
+
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
+                    //Here we say it's WriteIndented
+                    //If you want to learn: https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeroptions.writeindented?view=net-7.0
                     WriteIndented = true
-
                 };
 
-                string text = File.ReadAllText(openDialog.FileName); //4
+                //Here we say string text == the file what we have selected
+                string text = File.ReadAllText(openDialog.FileName);
 
-                var merged = new SceneBuilder();
+                //Here we serialize the json file
+                JsonObjectj jsonObj = JsonSerializer.Deserialize<JsonObjectj>(text, options);
 
-                JsonObjectj jsonObj = JsonSerializer.Deserialize<JsonObjectj>(text, options); //4
-
-                Matrix4x4 matrix = Matrix4x4.Identity;
-                System.Numerics.Vector3 offset = new Vector3(100, 100, 100);
-                matrix.Translation = offset;
-
-
-
-                //for omniwheel
+                //Those 2 lines below are parsing the glbs from the json file in base64
                 ModelRoot hub1Model = ModelRoot.ParseGLB(Convert.FromBase64String(jsonObj.GLBs[0]));
-
                 ModelRoot hub2Model = ModelRoot.ParseGLB(Convert.FromBase64String(jsonObj.GLBs[0]));
 
-                hub2Model.ApplyBasisTransform(matrix, "myfirstnode");
+                //This 2 lines are adding the animations to the OmniWheels
+                hub1Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, 10f)), (2, Quaternion.Identity));
+                hub2Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, -10f)), (2, Quaternion.Identity));
 
-                hub1Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, 4f)), (2, Quaternion.Identity));
-                hub2Model.LogicalNodes[0].WithRotationAnimation("Track0", (0, Quaternion.Identity), (1, Quaternion.CreateFromYawPitchRoll(0f, 0f, -4f)), (2, Quaternion.Identity));
-
+                //Here we shuff those ModelRoot hubs into a var HubScene
                 var hub1Scene = SceneBuilder.CreateFrom(hub1Model.DefaultScene);
                 var hub2Scene = SceneBuilder.CreateFrom(hub2Model.DefaultScene);
 
-                merged.AddScene(hub2Scene, Matrix4x4.CreateTranslation(1112, 130, 120));
+                //Here we are saving the Hub's to a GLB file
+                hub1Model.SaveGLB("C:\\Users\\oliam\\Videos\\Hub1.glb");
+                hub2Model.SaveGLB("C:\\Users\\oliam\\Videos\\Hub2.glb");
 
-                merged.AddScene(hub1Scene, Matrix4x4.Identity);
-                //merged.AddScene(hub2Scene, matrix);
 
-                merged.ToGltf2().Save(openDialog.FileName);
+                //This is the second part
+                //Here we load the GLB's again
+                var Object1 = SceneBuilder.LoadDefaultScene("C:\\Users\\oliam\\Videos\\Hub1.glb");
+                var Object2 = SceneBuilder.LoadDefaultScene("C:\\Users\\oliam\\Videos\\Hub2.glb");
 
-                //// Load the glTF file
-                //var model = ModelRoot.Load("path/to/gltf/file.glb");
+                //Here is the Matrix4x4
+                Matrix4x4 matrix = Matrix4x4.Identity;
+                //Here we set the offset for the second hub
+                System.Numerics.Vector3 x = new Vector3(0, 0, 29750);
+                matrix.Translation = x;
 
-                //// Get the animation you want to change
-                //var animation = model.Animations[0];
+                //Here we apply the offset to the second hub
+                Object2.ApplyBasisTransform(matrix);
 
-                //// Modify the animation as desired
-                //animation.Name = "My New Animation";
-                //animation.Channels[0].Sampler.Input.Accessor.AsVector3Array()[0] = new SharpGLTF.Math.Vector3(1, 2, 3);
+                //Now we want to save it
+                //So first we create a new SceneBuilder
+                var merged = new SceneBuilder();
 
-                //// Save the modified glTF file
-                //model.Save("modified/gltf/file.glb", true);
+                //Here we add the first hub to the scene
+                merged.AddScene(Object1, Matrix4x4.Identity);
+
+                //Here we add the second hub to the scene
+                merged.AddScene(Object2, Matrix4x4.Identity);
+
+                //Here we save the scene to a GLB file
+                merged.ToGltf2().Save("C:\\Users\\oliam\\Videos\\Merged.glb");
+                MessageBox.Show("OmniWheel is created");
             }
-
         }
 
         //Merge 2 GLB files into one
@@ -162,42 +170,23 @@ namespace GLB___SharpGLTF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Multiselect = true;
-            openDialog.Title = "Select A File";
-            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
-                                "All Files (*.*)|*.*";
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filename = openDialog.FileName;
-                //string file2 = openDialog.FileName;
+                var Object1 = SceneBuilder.LoadDefaultScene("C:\\Users\\oliam\\Videos\\Hub1.glb");
+                var Object2 = SceneBuilder.LoadDefaultScene("C:\\Users\\oliam\\Videos\\Hub2.glb");
+                 Matrix4x4 matrix = Matrix4x4.Identity;
+                    System.Numerics.Vector3 x = new Vector3(0, 0, 29750);
+                    matrix.Translation = x;
 
-                var Object1 = SceneBuilder.LoadDefaultScene(filename);
-                //var Object2 = SceneBuilder.LoadDefaultScene(file2);
-                // filter out the parts you don't want
-                /*            foreach (var instance in boat.Instances.ToArray())
-                            {
-                                if (instance.Name.StartsWith("Test")) instance.Remove();  // remove this instance from the boat scene.
-                            }*/
-                var merged = new SceneBuilder();
+                Object2.ApplyBasisTransform(matrix);
+
+            var merged = new SceneBuilder();
                 merged.AddScene(Object1, Matrix4x4.Identity);
-                //merged.AddScene(Object2, Matrix4x4.CreateTranslation(2, 0, 0));
-                merged.ToGltf2().Save("Merged2FilesTogether.glb");
-            }
+                merged.AddScene(Object2, Matrix4x4.Identity);
+                merged.ToGltf2().Save("C:\\Users\\oliam\\Videos\\Merged.glb");
         }
 
         private void btn_changeLocation_Click(object sender, EventArgs e)
         {
 
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Title = "Select A File";
-            openDialog.Filter = "3D Object (*.gltf;*.glb)|*.gltf;*.glb" + "|" +
-                                "All Files (*.*)|*.*";
-            
-           
         }
     }
 }
-
-
-//SharpGLTF.Animations.AnimatableProperty(1);

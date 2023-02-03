@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gltf_glb = new System.Windows.Forms.Button();
+            this.omniwheel = new System.Windows.Forms.Button();
             this.MergeBtn = new System.Windows.Forms.Button();
             this.Rotate180 = new System.Windows.Forms.Button();
             this.Animatie = new System.Windows.Forms.Button();
@@ -37,15 +37,15 @@
             this.btn_changeLocation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // gltf_glb
+            // omniwheel
             // 
-            this.gltf_glb.Location = new System.Drawing.Point(12, 12);
-            this.gltf_glb.Name = "gltf_glb";
-            this.gltf_glb.Size = new System.Drawing.Size(123, 23);
-            this.gltf_glb.TabIndex = 0;
-            this.gltf_glb.Text = "GLTF --> GLB";
-            this.gltf_glb.UseVisualStyleBackColor = true;
-            this.gltf_glb.Click += new System.EventHandler(this.btn_gltfTOglb_Click);
+            this.omniwheel.Location = new System.Drawing.Point(12, 12);
+            this.omniwheel.Name = "omniwheel";
+            this.omniwheel.Size = new System.Drawing.Size(123, 23);
+            this.omniwheel.TabIndex = 0;
+            this.omniwheel.Text = "OmniWheel";
+            this.omniwheel.UseVisualStyleBackColor = true;
+            this.omniwheel.Click += new System.EventHandler(this.btn_omniwheel_Click);
             // 
             // MergeBtn
             // 
@@ -118,7 +118,7 @@
             this.Controls.Add(this.Animatie);
             this.Controls.Add(this.Rotate180);
             this.Controls.Add(this.MergeBtn);
-            this.Controls.Add(this.gltf_glb);
+            this.Controls.Add(this.omniwheel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -127,7 +127,7 @@
 
         #endregion
 
-        private Button gltf_glb;
+        private Button omniwheel;
         private Button MergeBtn;
         private Button Rotate180;
         private Button Animatie;
